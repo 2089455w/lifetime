@@ -1,11 +1,13 @@
 class TasksController < ApplicationController
     
+    
     def new
         @task = Task.new
     end
     
     
     def index
+        @tasks = Task.all.order('created_at DESC')
     end
     
     
@@ -21,13 +23,30 @@ class TasksController < ApplicationController
 
     
     def show
+        @task = Task.find(params[:id])
     end
     
+    def edit
+    end
+    
+
+    
     def update
+        if @task.update(task_params)
+            redirect_to @task
+        else
+            render 'edit'
+        end
     end
     
     def destroy
+        @task = Task.find(params[:id])
+        @task.destroy
+ 
+        redirect_to tasks_path   
     end
+        
+    
     
     private 
     
