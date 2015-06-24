@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   resources :tasks
   
   
-  root 'welcome#index'
+  root 'tasks#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

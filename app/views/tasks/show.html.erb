@@ -1,6 +1,10 @@
 <h1><%= @task.Title%></h1>
 
-<%= @task.Description%>
+<%= @task.Description %>
+
+<%=@task.user.email%>
+
+
 
 <%= link_to 'Destroy', task_path,
               method: :delete,
