@@ -2,7 +2,17 @@
 
 
 <%= simple_form_for @task do |f| %>
+
   <%= f.input :Title %>
   <%= f.input :Description %>
+  <%= f.input :location %>
+  <%= f.input :time, as: :datetime_picker, :label => 'Start Time',
+                input_html: {showTodayButton: true} %>
+                
+  <%= f.input :endtime, as: :datetime_picker, :label => 'End Start Time',
+                input_html: {showTodayButton: true} %>
+
+  
+  
   <%= f.button :submit %>
 <% end %>

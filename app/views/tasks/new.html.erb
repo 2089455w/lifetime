@@ -1,3 +1,27 @@
-<h1>New Task</h1>
 
-<%= render 'form' %>
+<div  id= 'form' class="col-md-6 col-md-offset-3"> <h1>New Task </h1>
+        <div class="buttons" style="text-align:center;">
+                
+                <span id='meeting' style ="width:25px; height:25px; background-color:; padding-left 10px">Meeting </span>
+                <span id='meeting' style ="width:25px; height:25px; background-color:; padding-left 10px">Class </span>
+                <span id='meeting' style ="width:25px; height:25px; background-color:; padding-left 10px">Shopping </span>
+                <span id='meeting' style ="width:25px; height:25px; background-color:; padding-left 10px">Reminder </span>
+                <span id='meeting' style ="width:25px; height:25px; background-color:; padding-left 10px">To-Do </span>
+        </div>
+        
+        
+
+</div>
+
+
+
+
+<script>
+        $(document).ready(function(){
+                $('#meeting').click(function(){
+                        $('#form').append("<%== escape_javascript(render('form')) %>")
+                })
+        
+        })
+
+</script>

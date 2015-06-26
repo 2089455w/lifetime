@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624115219) do
+ActiveRecord::Schema.define(version: 20150625191753) do
 
   create_table "installs", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -34,9 +34,15 @@ ActiveRecord::Schema.define(version: 20150624115219) do
   create_table "tasks", force: :cascade do |t|
     t.string   "Title"
     t.text     "Description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "user_id"
+    t.string   "location"
+    t.datetime "time"
+    t.boolean  "repeating",   default: false
+    t.datetime "completeBy"
+    t.datetime "endtime"
+    t.string   "type"
   end
 
   add_index "tasks", ["user_id"], name: "index_tasks_on_user_id"
