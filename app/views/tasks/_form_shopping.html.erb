@@ -1,0 +1,15 @@
+
+
+<%= simple_form_for @task do |f| %>
+
+    <%= f.input :Description%>
+    
+    
+    
+    <div class="hidden" >
+      <%= f.input :options, as: :string, input_html: {id: "options"} %>
+
+   </div>
+  
+  <%= f.button :submit %>
+<% end %>

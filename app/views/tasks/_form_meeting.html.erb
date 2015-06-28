@@ -1,0 +1,20 @@
+
+
+
+<%= simple_form_for @task do |f| %>
+
+  <%= f.input :Title %>
+  <%= f.input :Description  %>
+  <%= f.input :location %>
+  
+  <div class="hidden">
+      <%= f.input :options, as: :string, input_html: {id: "options"} %>
+
+  </div>
+
+  
+  <input type="text" data-provide='datepicker' >
+  <%= f.button :submit %>
+
+
+<% end %>

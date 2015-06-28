@@ -1,0 +1,33 @@
+
+
+<%= simple_form_for @task do |f| %>
+  
+
+  <div style= "visibility:;">
+    <%= f.input :type, input_html: {id: "my-id"} %>
+  </div>
+
+  <%= f.input :Title %>
+  
+  <%= f.input :teacher %>
+  <%= f.input :location %>
+  <%= f.input :time,  
+            :input_html => { data: {behaviour: "datepicker"}}, 
+            :as => :string %>
+  <%= f.input :repeating, inline_label: 'repeating' %>
+
+  <div class="hidden" >
+      <%= f.input :options, as: :string, input_html: {id: "options"} %>
+  </div>
+
+  <%= f.button :submit %>
+  
+<% end %>
+
+<script>
+      $('[data-behaviour~=datepicker]').datepicker({"format": "yyyy-mm-dd", "weekStart": 1, "autoclose": true});
+      
+      $('#my-id').value = 'test';
+      
+</script>
+

@@ -1,15 +1,17 @@
 
-<div  id= 'form' class="col-md-6 col-md-offset-3"> <h1>New Task </h1>
+<div class="col-md-6 col-md-offset-3"> <h1>New Task </h1>
         <div class="buttons" style="text-align:center;">
                 
                 <span id='meeting' style ="width:25px; height:25px; background-color:; padding-left 10px">Meeting </span>
-                <span id='meeting' style ="width:25px; height:25px; background-color:; padding-left 10px">Class </span>
-                <span id='meeting' style ="width:25px; height:25px; background-color:; padding-left 10px">Shopping </span>
-                <span id='meeting' style ="width:25px; height:25px; background-color:; padding-left 10px">Reminder </span>
-                <span id='meeting' style ="width:25px; height:25px; background-color:; padding-left 10px">To-Do </span>
+                <span id='class' style ="width:25px; height:25px; background-color:; padding-left 10px">Class </span>
+                <span id='shopping' style ="width:25px; height:25px; background-color:; padding-left 10px">Shopping </span>
+                <span id='reminder' style ="width:25px; height:25px; background-color:; padding-left 10px">Reminder </span>
+                <span id='to-do' style ="width:25px; height:25px; background-color:; padding-left 10px">To-Do </span>
         </div>
         
         
+        
+        <div id='form'></div>
 
 </div>
 
@@ -18,10 +20,37 @@
 
 <script>
         $(document).ready(function(){
+                
+                
+
                 $('#meeting').click(function(){
-                        $('#form').append("<%== escape_javascript(render('form')) %>")
-                })
-        
+                        $('#form').html("<%== escape_javascript(render('form_meeting')) %>")
+                        var elem = document.getElementById("options");
+                        elem.value = "meeting";
+                        });
+                $('#class').click(function(){
+                        $('#form').html("<%== escape_javascript(render('form_class')) %>")
+                        var elem = document.getElementById("options");
+                        elem.value = "class";
+                        });
+                $('#shopping').click(function(){
+                        $('#form').html("<%== escape_javascript(render('form_shopping')) %>")
+                        var elem = document.getElementById("options");
+                        elem.value = "shopping";
+                        });
+                $('#reminder').click(function(){
+                        $('#form').html("<%== escape_javascript(render('form_reminder')) %>")
+                        var elem = document.getElementById("options");
+                        elem.value = "reminder";
+                        });
+                $('#to-do').click(function(){
+                        $('#form').html("<%== escape_javascript(render('form_todo')) %>")
+                        var elem = document.getElementById("options");
+                        elem.value = "to-do";
+                        });
+                
+                
+                
         })
 
 </script>

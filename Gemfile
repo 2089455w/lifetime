@@ -14,8 +14,7 @@ gem 'rails_admin', '~> 0.6.8'
 gem 'simple_form', '~> 3.1.0'
 gem 'bootstrap-sass', '~> 3.3.5'
 gem 'momentjs-rails', '~> 2.9',  :github => 'derekprior/momentjs-rails'
-gem 'datetimepicker-rails', github: 'zpaulovics/datetimepicker-rails', branch: 'master', submodules: true
-
+gem 'bootstrap-datepicker-rails'
 
 
 
