@@ -1,5 +1,81 @@
-<%- @tasks.each do |task| %>
+<style type="text/css">
+    
+    body{
+        text-align: center;
+    }    
+    
+    #days{
+        display:inline-block;
+        
+        
+    }
+    .container{
+        display:inline-block;
+        width:200px;
+        margin:0;
+        padding:0px;
+        border-left: 1px solid black;
+        height: 745px;
+        float:left;
 
-    <h1><%= task.Title %></h1>
+    }
+    .underline{
+        border-bottom:1px solid black
+    }
+    .quarterHour{
+        height:15px;
+    }
+    
+    .controls{
+        display:inline;
+        
+    }
 
-<%- end %>
+    .day{
+        overflow:scroll;
+        height: 745px;
+    }
+    #1{width:1401px; height:700; background-color:blue; margin:0 auto;}
+</style>
+
+
+<div class="calander" >
+
+    <div class="controls">
+        <span>next</span>
+        <span>previous</span>
+        <span>today</span>
+    </div> 
+   
+     <div id='1'style='width:1401px; height:700; background-color:blue; margin:0 auto;'>
+                <div class="container">Monday<div class='day' id="Monday"></div></div>
+                <div class="container">Teusday<div class='day' id="Teusday"></div></div>
+                <div class="container">Wednesday<div class='day' id="Wednesday"></div></div>
+                <div class="container">Thursday<div class='day' id="Thursday"></div></div>
+                <div class="container">Friday<div class='day' id="Friday"></div></div>
+                <div class="container">Saturday<div class='day' id="Saturday"></div></div>
+                <div class="container">Sunday<div class='day' id="Sunday"></div></div>
+     </div> 
+
+</div>
+
+<script>
+    
+    $(document).ready(function(){
+        for(var i=1; i<=96; i++){
+            $(".day").append("<div class='quarterHour'></div>")
+        };
+            
+        $('.quarterHour').show(function(){
+            $(this).append('<p>' + ($(this).parent().attr("id")+ '</p>'))
+        })
+            
+            
+        
+        
+        
+    })
+    
+    
+    
+    </script>
