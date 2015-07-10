@@ -35,7 +35,6 @@
         overflow:scroll;
         height: 745px;
     }
-    #1{width:1401px; height:700; background-color:blue; margin:0 auto;}
 </style>
 
 
@@ -46,33 +45,94 @@
         <span>previous</span>
         <span>today</span>
     </div> 
-   
-     <div id='1'style='width:1401px; height:700; background-color:blue; margin:0 auto;'>
-                <div class="container">Monday<div class='day' id="Monday"></div></div>
-                <div class="container">Teusday<div class='day' id="Teusday"></div></div>
-                <div class="container">Wednesday<div class='day' id="Wednesday"></div></div>
-                <div class="container">Thursday<div class='day' id="Thursday"></div></div>
-                <div class="container">Friday<div class='day' id="Friday"></div></div>
-                <div class="container">Saturday<div class='day' id="Saturday"></div></div>
-                <div class="container">Sunday<div class='day' id="Sunday"></div></div>
-     </div> 
+
+
+    <div class='year'>   
+        <div class='month' > 
+             <div class='week' style='width:1401px; height:700;  margin:0 auto;'></div>
+        </div>
+     </div>
 
 </div>
 
 <script>
     
     $(document).ready(function(){
+        
+        var date = new Date()
+        
+        var year  = date.getFullYear()
+        
+        var month = date.getMonth()+1
+        
+        var day = date.getDate()
+        
+        if(day<8 && day>28){var week=1}
+        
+        if(day>7 && day<15){var week = 2}
+        
+        if(day>14 && day<22){var week = 3}
+        
+        if(day>21 && day<29){var week =4}
+        
+    
+        
+
+        for(var x=1; x<=7; x++){
+            switch(x%7){
+                case 1:
+                    $('.week').append('<div class="container">Monday<div class="day" id="Monday"></div></div>');
+                    break;
+                case 2:
+                    $('.week').append('<div class="container">Teusday<div class="day" id="Teusday"></div></div>');
+                    break;
+                case 3:
+                    $('.week').append('<div class="container">Wednesday<div class="day" id="Wednesday"></div></div>');
+                    break;
+                case 4:
+                    $('.week').append('<div class="container">Thursday<div class="day" id="Thursday"></div></div>');
+                    break;
+                case 5:
+                    $('.week').append('<div class="container">Friday<div class="day" id="Friday"></div></div>');
+                    break;
+                case 6:
+                    $('.week').append('<div class="container">Saturday<div class="day" id="Saturday"></div></div>');
+                    break;
+                case 0:
+                    $('.week').append('<div class="container">Sunday<div class="day" id="Sunday"></div></div>');
+                    break;
+                
+            }
+            
+            
+        }
+        
+        
+        
+        
+        
         for(var i=1; i<=96; i++){
-            $(".day").append("<div class='quarterHour'></div>")
+              $('.day').append("<div id="+i+" class='quarterHour'></div>")  
         };
-            
+        
+        
+        
         $('.quarterHour').show(function(){
-            $(this).append('<p>' + ($(this).parent().attr("id")+ '</p>'))
+            $(this).attr('id',  $(this).attr('id').toString() + ($(this).parent().attr("id")).toString())
         })
-            
-            
         
         
+         $('.year').show(function(){
+            $(this).attr('id',  year.toString())
+        })
+        
+         $('.month').show(function(){
+            $(this).attr('id',  month.toString() +'/'+ ($(this).parent().attr("id")).toString())
+        })
+        
+         $('.week').show(function(){
+            $(this).attr('id',  week + ($(this).parent().attr("id")).toString())
+        })
         
     })
     
